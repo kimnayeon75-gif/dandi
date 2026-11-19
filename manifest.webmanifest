@@ -1,0 +1,14 @@
+{
+  "name": "단디 동구 부동산 브리핑",
+  "short_name": "단디부동산",
+  "description": "국토교통부 실거래 자료 기반 대구 동구 아파트 시장 대시보드",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f5ef",
+  "theme_color": "#183f32",
+  "lang": "ko-KR",
+  "icons": [
+    {"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}

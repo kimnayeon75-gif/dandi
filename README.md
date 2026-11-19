@@ -28,6 +28,13 @@
 2. 매매 해제 거래를 처리한 기준을 기록하고, 월별 거래 건수를 원자료와 대조합니다.
 3. 월별 JSON과 목록 파일의 월·건수·자료 갱신 시각을 같은 커밋에서 갱신합니다. 누락되거나 건수가 다른 월이 있으면 새 자료를 배포하기 전에 확인합니다.
 
+## 자동 갱신과 GitHub Pages
+
+- GitHub Actions의 **Refresh Dong-gu transactions and publish dashboard**는 매일 한국시간 오전 7시 23분에 실행되도록 예약되어 있습니다. **Run workflow**로 즉시 갱신할 수 있습니다.
+- 저장소의 **Settings → Secrets and variables → Actions**에서 `MOLIT_SERVICE_KEY` 저장소 시크릿을 등록합니다. 공공데이터포털에서 아파트 매매 실거래가 상세 자료와 아파트 전월세 실거래가 자료를 모두 이용할 수 있는 키여야 합니다.
+- **Settings → Pages → Build and deployment → Source**를 **GitHub Actions**로 설정합니다. 작업은 공개 사이트용 파일만 별도로 묶어 배포합니다.
+- 대구 동구(`27140`)의 최근 12개 계약월을 다시 받아 지연 신고와 매매 해제를 반영합니다. API 응답 및 페이지별 건수 검사를 마친 뒤 데이터 파일과 목록을 한 커밋으로 갱신합니다. 수집이나 검증이 실패하면 신규 자료 배포 단계로 진행하지 않습니다.
+
 ## 로컬 실행
 
 `index.html`을 열거나 정적 웹 서버의 루트에서 실행합니다.
